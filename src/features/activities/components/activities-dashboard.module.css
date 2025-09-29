@@ -1,0 +1,55 @@
+/* Dashboard Layout */
+.dashboard {
+  min-height: 100vh;
+  padding: var(--space-8) var(--space-4);
+}
+
+.header {
+  text-align: center;
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-grey-200);
+  margin-bottom: var(--space-12);
+}
+
+.title {
+  margin-bottom: var(--space-2);
+}
+
+.date {
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-500);
+  font-weight: 300;
+  margin-bottom: var(--space-4);
+}
+
+.stats {
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Activities Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: var(--space-6) var(--space-3);
+  }
+
+  .header {
+    padding-bottom: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+}

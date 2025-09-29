@@ -4,7 +4,6 @@ import { ActivityCard } from "./activity-card";
 import { AddActivityForm } from "./add-activity-form";
 import { useActivities } from "../hooks/use-activities";
 import { getTodayCompletedCount } from "../utils/activity-helpers";
-import styles from "./activities-dashboard.module.css";
 import { formatDate } from "../../../utils/date";
 
 export const ActivitiesDashboard: React.FC = () => {
@@ -12,21 +11,19 @@ export const ActivitiesDashboard: React.FC = () => {
   const todayCompletedCount = getTodayCompletedCount(state.completions);
 
   return (
-    <div className={styles.dashboard}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Activity Tracker</h1>
-        <p className={styles.subtitle}>{formatDate(new Date())}</p>
-        <div className={styles.stats}>
-          {todayCompletedCount} activities completed today
-        </div>
+    <div>
+      <header>
+        <h1>Activity Tracker</h1>
+        <p>{formatDate(new Date())}</p>
+        <div>{todayCompletedCount} activities completed today</div>
       </header>
 
-      <main className={styles.main}>
-        <div className={styles.activitiesGrid}>
+      <main>
+        <div>
           {state.activities.map((activity) => (
             <ActivityCard key={activity.id} activity={activity} />
           ))}
-          <div className={styles.addActivityContainer}>
+          <div>
             <AddActivityForm />
           </div>
         </div>

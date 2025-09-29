@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useActivities } from "../hooks/use-activities";
 import { getTodayCompletions, generateId } from "../utils/activity-helpers";
-import styles from "./activity-card.module.css";
 import type { Activity, ActivityCompletion } from "../types";
 
 interface ActivityCardProps {
@@ -41,61 +40,41 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
   };
 
   return (
-    <div
-      className={`${styles.activityCard} ${
-        isCompletedToday ? styles.completed : ""
-      }`}
-    >
-      <div className={styles.cardHeader}>
-        <div className={styles.cardContent}>
-          <h3 className={styles.activityName}>{activity.name}</h3>
-          <p className={styles.activityDescription}>{activity.description}</p>
-          <span className={styles.frequencyBadge}>
-            {activity.targetFrequency}
-          </span>
+    <div>
+      <div>
+        <div>
+          <h3>{activity.name}</h3>
+          <p>{activity.description}</p>
+          <span>{activity.targetFrequency}</span>
         </div>
-        <div className={styles.cardActions}>
-          <button
-            onClick={() => setShowNotes(!showNotes)}
-            className={styles.actionButton}
-            title="Add notes"
-          >
+        <div>
+          <button onClick={() => setShowNotes(!showNotes)} title="Add notes">
             📝
           </button>
-          <button
-            onClick={handleDelete}
-            className={`${styles.actionButton} ${styles.deleteButton}`}
-            title="Delete activity"
-          >
+          <button onClick={handleDelete} title="Delete activity">
             🗑️
           </button>
         </div>
       </div>
 
       {showNotes && !isCompletedToday && (
-        <div className={styles.notesSection}>
+        <div>
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Add notes about this activity..."
-            className={styles.notesTextarea}
             rows={2}
           />
         </div>
       )}
 
       {isCompletedToday && todayCompletions[0].notes && (
-        <div className={styles.completionNotes}>
+        <div>
           <strong>Notes:</strong> {todayCompletions[0].notes}
         </div>
       )}
 
-      <button
-        onClick={handleComplete}
-        className={`${styles.completeButton} ${
-          isCompletedToday ? styles.completedButton : ""
-        }`}
-      >
+      <button onClick={handleComplete}>
         {isCompletedToday ? "✓ Completed" : "Mark Complete"}
       </button>
     </div>

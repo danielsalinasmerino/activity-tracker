@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useActivities } from "../hooks/use-activities";
 import { generateId } from "../utils/activity-helpers";
-import styles from "./add-activity-form.module.css";
 import type { Frequency } from "../../../types";
 import type { Activity } from "../types";
 
@@ -33,58 +32,47 @@ export const AddActivityForm: React.FC = () => {
 
   if (!showForm) {
     return (
-      <button onClick={() => setShowForm(true)} className={styles.addButton}>
-        + Add New Activity
-      </button>
+      <button onClick={() => setShowForm(true)}>+ Add New Activity</button>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.addForm}>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>Activity Name</label>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Activity Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className={styles.input}
           placeholder="e.g., Morning meditation"
           required
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label className={styles.label}>Description</label>
+      <div>
+        <label>Description</label>
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className={styles.input}
           placeholder="Brief description of the activity"
         />
       </div>
 
-      <div className={styles.formGroup}>
-        <label className={styles.label}>Frequency</label>
+      <div>
+        <label>Frequency</label>
         <select
           value={frequency}
           onChange={(e) => setFrequency(e.target.value as Frequency)}
-          className={styles.select}
         >
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
         </select>
       </div>
 
-      <div className={styles.formActions}>
-        <button type="submit" className={styles.submitButton}>
-          Add Activity
-        </button>
-        <button
-          type="button"
-          onClick={() => setShowForm(false)}
-          className={styles.cancelButton}
-        >
+      <div>
+        <button type="submit">Add Activity</button>
+        <button type="button" onClick={() => setShowForm(false)}>
           Cancel
         </button>
       </div>

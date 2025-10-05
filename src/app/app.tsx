@@ -1,6 +1,8 @@
 import React from "react";
-import { ActivitiesDashboard } from "@/features/activities";
+
 import { AppProvider } from "./provider";
+
+import { ActivitiesDashboard } from "@/features/activities";
 
 export const App: React.FC = () => {
   return (

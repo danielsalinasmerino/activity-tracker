@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+
 import type { ActivityAction, ActivityState } from "../types";
 
 interface ActivityContextType {

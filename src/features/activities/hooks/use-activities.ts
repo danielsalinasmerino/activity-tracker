@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import { ActivityContext } from "../stores/activity-context";
 
 export const useActivities = () => {

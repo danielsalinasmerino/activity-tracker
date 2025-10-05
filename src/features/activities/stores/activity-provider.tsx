@@ -1,7 +1,9 @@
 import React, { useReducer } from "react";
+
+import { INITIAL_ACTIVITY_STATE } from "../constants";
+
 import { ActivityContext } from "./activity-context";
 import { activityReducer } from "./activity-store";
-import { INITIAL_ACTIVITY_STATE } from "../constants";
 
 interface ActivityProviderProps {
   children: React.ReactNode;

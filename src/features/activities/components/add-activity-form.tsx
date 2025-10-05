@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useActivities } from "../hooks/use-activities";
-import { generateId } from "../utils/activity-helpers";
-import type { Frequency } from "../../../types";
-import type { Activity } from "../types";
+import type { Activity, Frequency } from "../types";
+import { generateId } from "../utils";
+
 import styles from "./add-activity-form.module.css";
 
 export const AddActivityForm: React.FC = () => {

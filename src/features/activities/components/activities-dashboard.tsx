@@ -3,9 +3,9 @@ import { ActivityCard } from "./activity-card";
 import { AddActivityForm } from "./add-activity-form";
 import { useActivities } from "../hooks/use-activities";
 import { formatDate } from "../../../utils/date";
+import { getTodayCompletedCount } from "../utils";
 
 import styles from "./activities-dashboard.module.css";
-import { getTodayCompletedCount } from "../utils";
 
 export const ActivitiesDashboard: React.FC = () => {
   const { state } = useActivities();

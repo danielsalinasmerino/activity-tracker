@@ -1,0 +1,1 @@
+export { useScopedTranslation } from "./useScopedTranslation";

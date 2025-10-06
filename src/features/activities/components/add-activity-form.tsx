@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useActivities } from "../hooks/use-activities";
+import { useActivities } from "../hooks/useActivities";
 import type { Activity, Frequency } from "../types";
 import { generateId } from "../utils";
 

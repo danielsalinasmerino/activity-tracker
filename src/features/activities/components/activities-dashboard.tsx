@@ -19,10 +19,12 @@ export const ActivitiesDashboard: React.FC = () => {
   return (
     <div className={styles.dashboard}>
       <header className={styles.header}>
-        <h1 className={styles.title}>{t("activity_tracker")}</h1>
+        <h1 className={styles.title}>{t("activities.dashboard.title")}</h1>
         <p className={styles.date}>{formatDate(new Date())}</p>
         <div className={styles.stats}>
-          {t("activities.completed", { count: todayCompletedCount })}
+          {t("activities.dashboard.track.completed", {
+            count: todayCompletedCount,
+          })}
         </div>
       </header>
 

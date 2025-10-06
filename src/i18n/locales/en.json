@@ -1,7 +1,11 @@
 {
-  "activity_tracker": "Activity Tracker",
   "activities": {
-    "completed_one": "{{count}} activity completed today",
-    "completed_other": "{{count}} activities completed today"
+    "dashboard": {
+      "title": "Activity Tracker",
+      "track": {
+        "completed_one": "{{count}} activity completed today",
+        "completed_other": "{{count}} activities completed today"
+      }
+    }
   }
 }

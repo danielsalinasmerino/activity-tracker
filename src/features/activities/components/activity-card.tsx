@@ -12,8 +12,9 @@ interface ActivityCardProps {
 
 export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
   const { state, dispatch } = useActivities();
-  const [showNotes, setShowNotes] = useState(false);
+
   const [notes, setNotes] = useState("");
+  const [showNotes, setShowNotes] = useState(false);
 
   const todayCompletions = getTodayCompletions(state.completions, activity.id);
   const isCompletedToday = todayCompletions.length > 0;
@@ -37,9 +38,7 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
   };
 
   const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this activity?")) {
-      dispatch({ type: "DELETE_ACTIVITY", payload: activity.id });
-    }
+    dispatch({ type: "DELETE_ACTIVITY", payload: activity.id });
   };
 
   return (

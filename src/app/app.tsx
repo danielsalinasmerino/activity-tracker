@@ -1,13 +1,24 @@
 import React from "react";
 
-import { AppProvider } from "./provider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { ROUTES } from "@/constants";
 import { ActivitiesDashboard } from "@/features/activities";
+import { WeekTracker } from "@/features/week-tracker";
+
+import { Navigation } from "./components/navigation";
+import { AppProvider } from "./provider";
 
 export const App: React.FC = () => {
   return (
-    <AppProvider>
-      <ActivitiesDashboard />
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider>
+        <Navigation />
+        <Routes>
+          <Route path={ROUTES.DASHBOARD} element={<ActivitiesDashboard />} />
+          <Route path={ROUTES.WEEK_TRACKER} element={<WeekTracker />} />
+        </Routes>
+      </AppProvider>
+    </BrowserRouter>
   );
 };

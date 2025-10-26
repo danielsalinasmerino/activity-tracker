@@ -7,5 +7,11 @@
         "completed_other": "{{count}} activities completed today"
       }
     }
+  },
+  "weekTracker": {
+    "title": "Week Tracker",
+    "subtitle": "Track your activities across the week",
+    "selectActivities": "Select Activities",
+    "noActivitiesSelected": "Select activities from the sidebar to view your weekly progress"
   }
 }

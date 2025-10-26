@@ -42,6 +42,11 @@ export default tseslint.config(
               group: "external",
               position: "before",
             },
+            {
+              pattern: "@/**",
+              group: "internal",
+              position: "before",
+            },
           ],
           pathGroupsExcludedImportTypes: ["react"],
           "newlines-between": "always",

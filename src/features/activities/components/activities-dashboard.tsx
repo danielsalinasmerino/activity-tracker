@@ -1,13 +1,14 @@
 import React from "react";
 
-import { useScopedTranslation } from "../../../hooks/useScopedTranslation";
-import { formatDate } from "../../../utils/date";
+import { useScopedTranslation } from "@/hooks/useScopedTranslation";
+import { formatDate } from "@/utils/date";
+
 import { useActivities } from "../hooks/useActivities";
 import { getTodayCompletedCount } from "../utils";
 
+import styles from "./activities-dashboard.module.css";
 import { ActivityCard } from "./activity-card";
 import { AddActivityForm } from "./add-activity-form";
-import styles from "./activities-dashboard.module.css";
 
 export const ActivitiesDashboard: React.FC = () => {
   const { state } = useActivities();

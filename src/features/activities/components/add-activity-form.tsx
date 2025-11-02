@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useActivities } from "../hooks/useActivities";
 import type { Activity, Frequency } from "../types";
+import { ActivityActionType } from "../types";
 import { generateId } from "../utils";
 
 import styles from "./add-activity-form.module.css";
@@ -25,7 +26,7 @@ export const AddActivityForm: React.FC = () => {
       createdAt: new Date(),
     };
 
-    dispatch({ type: "ADD_ACTIVITY", payload: newActivity });
+    dispatch({ type: ActivityActionType.Add, payload: newActivity });
     setName("");
     setDescription("");
     setFrequency("daily");
@@ -35,7 +36,10 @@ export const AddActivityForm: React.FC = () => {
   if (!showForm) {
     return (
       <div className={styles.container}>
-        <button onClick={() => setShowForm(true)} className={styles.addButton}>
+        <button
+          onClick={() => setShowForm(true)}
+          className={`${styles.addButton} btn-outline`}
+        >
           + Add New Activity
         </button>
       </div>
@@ -87,7 +91,7 @@ export const AddActivityForm: React.FC = () => {
           <button
             type="button"
             onClick={() => setShowForm(false)}
-            className={styles.cancelButton}
+            className={`${styles.cancelButton} btn-ghost`}
           >
             Cancel
           </button>

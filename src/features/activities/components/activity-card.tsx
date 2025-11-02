@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useActivities } from "../hooks/useActivities";
 import type { Activity, ActivityCompletion } from "../types";
+import { ActivityActionType } from "../types";
 import { generateId, getTodayCompletions } from "../utils";
 
 import styles from "./activity-card.module.css";
@@ -22,7 +23,10 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
   const handleComplete = () => {
     if (isCompletedToday) {
       const completion = todayCompletions[0];
-      dispatch({ type: "REMOVE_COMPLETION", payload: completion.id });
+      dispatch({
+        type: ActivityActionType.RemoveCompletion,
+        payload: completion.id,
+      });
     } else {
       const newCompletion: ActivityCompletion = {
         id: generateId(),
@@ -31,14 +35,14 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
         notes: notes.trim() || undefined,
         createdAt: new Date(),
       };
-      dispatch({ type: "COMPLETE_ACTIVITY", payload: newCompletion });
+      dispatch({ type: ActivityActionType.Complete, payload: newCompletion });
       setNotes("");
       setShowNotes(false);
     }
   };
 
   const handleDelete = () => {
-    dispatch({ type: "DELETE_ACTIVITY", payload: activity.id });
+    dispatch({ type: ActivityActionType.Delete, payload: activity.id });
   };
 
   return (
@@ -54,14 +58,14 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({ activity }) => {
         <div className={styles.actions}>
           <button
             onClick={() => setShowNotes(!showNotes)}
-            className={styles.actionButton}
+            className={`${styles.actionButton} btn-ghost btn-icon`}
             title="Add notes"
           >
             📝
           </button>
           <button
             onClick={handleDelete}
-            className={`${styles.actionButton} ${styles.deleteButton}`}
+            className={`${styles.actionButton} btn-danger btn-icon`}
             title="Delete activity"
           >
             🗑️

@@ -4,9 +4,9 @@ import { useScopedTranslation } from "@/hooks/useScopedTranslation";
 
 import { useActivities } from "../../activities/hooks/useActivities";
 
-import { ActivitySelector } from "./activity-selector";
-import { WeekGrid } from "./week-grid";
 import styles from "./week-tracker.module.css";
+
+import { ActivitySelector, WeekGrid } from ".";
 
 export const WeekTracker: React.FC = () => {
   const { state, dispatch } = useActivities();

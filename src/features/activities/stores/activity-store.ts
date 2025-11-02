@@ -1,16 +1,17 @@
 import type { ActivityAction, ActivityState } from "../types";
+import { ActivityActionType } from "../types";
 
 export const activityReducer = (
   state: ActivityState,
   action: ActivityAction
 ): ActivityState => {
   switch (action.type) {
-    case "ADD_ACTIVITY":
+    case ActivityActionType.Add:
       return {
         ...state,
         activities: [...state.activities, action.payload],
       };
-    case "DELETE_ACTIVITY":
+    case ActivityActionType.Delete:
       return {
         ...state,
         activities: state.activities.filter(
@@ -20,12 +21,12 @@ export const activityReducer = (
           (completion) => completion.activityId !== action.payload
         ),
       };
-    case "COMPLETE_ACTIVITY":
+    case ActivityActionType.Complete:
       return {
         ...state,
         completions: [...state.completions, action.payload],
       };
-    case "REMOVE_COMPLETION":
+    case ActivityActionType.RemoveCompletion:
       return {
         ...state,
         completions: state.completions.filter(

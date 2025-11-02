@@ -2,11 +2,14 @@ import React from "react";
 
 import { addDays, endOfWeek, format, isSameDay, startOfWeek } from "date-fns";
 
+import { DAYS_IN_WEEK, WEEK_STARTS_ON_MONDAY } from "@/constants";
+
 import type {
   Activity,
   ActivityAction,
   ActivityCompletion,
 } from "../../activities/types";
+import { ActivityActionType } from "../../activities/types";
 import { generateId } from "../../activities/utils";
 
 import styles from "./week-grid.module.css";
@@ -24,11 +27,13 @@ export const WeekGrid: React.FC<WeekGridProps> = ({
 }) => {
   // Get the current week (Monday to Sunday)
   const today = new Date();
-  const weekStart = startOfWeek(today, { weekStartsOn: 1 }); // 1 = Monday
-  const weekEnd = endOfWeek(today, { weekStartsOn: 1 });
+  const weekStart = startOfWeek(today, { weekStartsOn: WEEK_STARTS_ON_MONDAY });
+  const weekEnd = endOfWeek(today, { weekStartsOn: WEEK_STARTS_ON_MONDAY });
 
-  // Generate array of 7 days for the current week (Monday to Sunday)
-  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i));
+  // Generate array of days for the current week (Monday to Sunday)
+  const weekDays = Array.from({ length: DAYS_IN_WEEK }, (_, i) =>
+    addDays(weekStart, i)
+  );
 
   // Format week range - e.g., "Week from 20-26 October 2025" or "Week from 28 Sept-4 Oct 2025"
   const formatWeekRange = (): string => {
@@ -73,7 +78,10 @@ export const WeekGrid: React.FC<WeekGridProps> = ({
 
     if (completionId) {
       // Remove completion
-      dispatch({ type: "REMOVE_COMPLETION", payload: completionId });
+      dispatch({
+        type: ActivityActionType.RemoveCompletion,
+        payload: completionId,
+      });
     } else {
       // Add completion
       const newCompletion: ActivityCompletion = {
@@ -82,7 +90,7 @@ export const WeekGrid: React.FC<WeekGridProps> = ({
         completedAt: date,
         createdAt: new Date(),
       };
-      dispatch({ type: "COMPLETE_ACTIVITY", payload: newCompletion });
+      dispatch({ type: ActivityActionType.Complete, payload: newCompletion });
     }
   };
 

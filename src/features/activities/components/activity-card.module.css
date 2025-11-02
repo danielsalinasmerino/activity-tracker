@@ -64,17 +64,6 @@
   justify-content: center;
 }
 
-.actionButton:hover {
-  background: var(--color-grey-100);
-  border-color: var(--color-grey-400);
-}
-
-.deleteButton:hover {
-  background: var(--color-grey-900);
-  border-color: var(--color-grey-900);
-  color: var(--color-white);
-}
-
 /* Notes Section */
 .notesSection {
   margin-top: var(--space-4);

@@ -7,8 +7,8 @@ import { useActivities } from "../hooks/useActivities";
 import { getTodayCompletedCount } from "../utils";
 
 import styles from "./activities-dashboard.module.css";
-import { ActivityCard } from "./activity-card";
-import { AddActivityForm } from "./add-activity-form";
+
+import { ActivityCard, AddActivityForm } from ".";
 
 export const ActivitiesDashboard: React.FC = () => {
   const { state } = useActivities();

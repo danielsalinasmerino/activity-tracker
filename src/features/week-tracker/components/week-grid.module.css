@@ -26,7 +26,7 @@
 /* Header Row */
 .header {
   display: grid;
-  grid-template-columns: 200px repeat(7, 1fr);
+  grid-template-columns: var(--week-grid-min-column-width) repeat(7, 1fr);
   border-bottom: 2px solid var(--color-grey-300);
   background: var(--color-grey-100);
 }
@@ -71,7 +71,7 @@
 /* Activity Rows */
 .row {
   display: grid;
-  grid-template-columns: 200px repeat(7, 1fr);
+  grid-template-columns: var(--week-grid-min-column-width) repeat(7, 1fr);
   border-bottom: 1px solid var(--color-grey-200);
   transition: background-color var(--transition);
 }

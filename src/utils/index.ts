@@ -1,1 +1,1 @@
-export { formatDate, isDateToday } from "./date.ts";
+export { formatDate, isDateToday } from "./date";
